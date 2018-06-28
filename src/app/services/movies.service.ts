@@ -15,25 +15,9 @@ export class MoviesService {
     private http: HttpClient
   ) { }
 
-  /*getMovies(){
-    return this.http.get(this.url + this.apiKey)
-    .pipe(
-      map((data: any)=>{
-        return data.movie.map((item) =>{
-          return {
-            id: item.id,
-            title: item.title,
-            poster_path: item.poster_path,
-            popularity: item.popularity
-          }
-        });
-      })
-    );
-  }*/
-
   
   getMovies(){
-    console.log(this.url + this.apiKey);
+    //console.log(this.url + this.apiKey);
     return this.http.get(this.url + this.apiKey)
     .pipe(
       map((data)=>{

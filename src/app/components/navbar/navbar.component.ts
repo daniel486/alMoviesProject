@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  activeLink = "";
+  movies = "Movies";
+  actors = "Actors";
+  tvShows = "TV Shows";
+
   constructor() { }
 
   ngOnInit() {
