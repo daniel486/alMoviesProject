@@ -1,4 +1,16 @@
-<p>
-  {{ movie.homepage }}----{{movie.backdrop_path}}
-</p>
-<!--<div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500'+movie.backdrop_path+')'}"></div>-->
+<div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')', 'width': '100%', 'background-size': 'cover', 'background-repeat': 'no-repeat'}">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-4 col-md-4">
+        <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" class="posterDetailImage">
+      </div>
+      <div class="col col-lg-8 col-md-8">
+        <h3>{{ movie.title }}</h3>
+        
+        <!--<h3>pp{{ movie.videos_trailer[0].key }}</h3>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

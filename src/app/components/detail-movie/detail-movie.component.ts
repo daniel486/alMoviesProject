@@ -16,6 +16,8 @@ export class DetailMovieComponent implements OnInit {
   private routerSubscribe: any;
   public movie: MovieDescriptor = new MovieDescriptor();
 
+  //public movieTrailer = this.movie.videos_trailer[0].key;
+
   constructor(
     private route: ActivatedRoute,
     private detailService: DetailService
@@ -31,6 +33,7 @@ export class DetailMovieComponent implements OnInit {
         (data: any) => {
           console.log("entro2");
           this.movie = data;
+          console.log(data);
         }
       );
     });

@@ -9,6 +9,11 @@ import { DetailActorComponent } from './components/detail-actor/detail-actor.com
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'movies',
+    pathMatch: 'full'
+  },
+  {
     path: 'movies',
     component: ListMoviesComponent
   },
