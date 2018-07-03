@@ -1,16 +1,30 @@
 <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')', 'width': '100%', 'background-size': 'cover', 'background-repeat': 'no-repeat'}">
   <div class="container">
     <div class="row">
-      <div class="col col-lg-4 col-md-4">
+      <div class="col col-lg-2 col-md-2">
         <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" class="posterDetailImage">
       </div>
-      <div class="col col-lg-8 col-md-8">
-        <h3>{{ movie.title }}</h3>
-        
-        <!--<h3>pp{{ movie.videos_trailer[0].key }}</h3>-->
+      <div class="col col-lg-1 col-md-1"></div>
+      <div class="col col-lg-9 col-md-9">
+        <h2>{{ movie.title }}</h2><br>
+        <hr>
+        <p>{{ movie.overview }}</p>
+        <div *ngFor="let video of movie.videos_trailer, let i = index" align="center">
+          <div *ngIf = 'i == 0; then first_trailer'>
+          </div>
+          <ng-template #first_trailer>
+            <iframe width="560" height="315" [src]="getMovieTrailerUrl(video.key) | safe" frameborder="0" allowfullscreen></iframe>
+          </ng-template>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<mat-tab-group mat-stretch-tabs [ngStyle]="{'background-color': 'lightgray'}">
+  <mat-tab label="First"> Content 1 </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>
+  
 
 <app-footer></app-footer>

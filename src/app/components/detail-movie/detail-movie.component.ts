@@ -15,8 +15,7 @@ export class DetailMovieComponent implements OnInit {
 
   private routerSubscribe: any;
   public movie: MovieDescriptor = new MovieDescriptor();
-
-  //public movieTrailer = this.movie.videos_trailer[0].key;
+  public embedUrl: string = "https://www.youtube.com/embed/";
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +40,15 @@ export class DetailMovieComponent implements OnInit {
 
   ngOnDestroy(){
     this.routerSubscribe.unsubscribe();
+  }
+
+  /**
+   * This function return the url that will be put in the iframe that
+   * will show the trailer.
+   * @param key this param is the key from the youtube video
+   */
+  getMovieTrailerUrl(key: string): string{
+    return this.embedUrl + key;
   }
 
 }
