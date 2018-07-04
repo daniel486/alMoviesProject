@@ -1,3 +1,4 @@
+<div [ngStyle]="{'background': '#000000', 'z-index': '-2'}">
 <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')', 'width': '100%', 'background-size': 'cover', 'background-repeat': 'no-repeat'}">
   <div class="container">
     <div class="row">
@@ -8,13 +9,13 @@
       <div class="col col-lg-9 col-md-9">
         <h2>{{ movie.title }} | </h2><br>
         <div class="row">
-          <div class="col col-lg-5 col-md-5">
+          <div class="col col-lg-7 col-md-7">
             <p>{{getDetailMovieGenres(movie)}}</p>
           </div>
-          <div class="col col-lg-3 col-md-3" [ngStyle]="{'text-align': 'center'}">
+          <div class="col col-lg-4 col-md-4" [ngStyle]="{'text-align': 'center'}">
             <p>({{ movie.release_date | date:'MMM - yyyy' }})</p>
           </div>
-          <div class="col col-lg-4 col-md-4" *ngIf="movie.vote_average > 6 then gold_star else silver_star">
+          <div class="col col-lg-1 col-md-1" *ngIf="movie.vote_average > 6 then gold_star else silver_star">
             
           </div>
           <ng-template #gold_star>
@@ -43,8 +44,20 @@
     </div>
   </div>
 </div>
+</div>
 <mat-tab-group mat-stretch-tabs [ngStyle]="{'background-color': 'lightgray'}">
-  <mat-tab label="Similar Movies"> Content 1 </mat-tab>
+  <mat-tab label="Similar Movies">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="space-around center">
+      <div *ngFor="let movie of similar.movies, let i = index">
+        <mat-card class="movie-card">
+          <a [routerLink]="['/movie', movie.id]"><img mat-card-image src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.title}}"></a>
+          <mat-card-content class="card-tit">
+            <mat-card-title class="card-tit"><a [routerLink]="['/movie', movie.id]">{{ movie.title }}</a></mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
   <mat-tab label="Cast"> Content 2 </mat-tab>
 </mat-tab-group>
   

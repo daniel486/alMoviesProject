@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDescriptor } from '../../types/detailMovie.type';
+import { SimilarMoviesDescriptor } from '../../types/similar.type';
 import { DetailService } from '../../services/detail.service';
 import { routerTransition } from '../../router.animations';
 
@@ -13,8 +14,10 @@ import { routerTransition } from '../../router.animations';
 })
 export class DetailMovieComponent implements OnInit {
 
-  private routerSubscribe: any;
+  private routerSubscribeDetail: any;
+  private routerSubscribeSimilar: any;
   public movie: MovieDescriptor = new MovieDescriptor();
+  public similar: SimilarMoviesDescriptor = new SimilarMoviesDescriptor();
   public embedUrl: string = "https://www.youtube.com/embed/";
 
   constructor(
@@ -24,7 +27,7 @@ export class DetailMovieComponent implements OnInit {
 
   ngOnInit() {
     console.log("trata");
-    this.routerSubscribe = this.route.params.subscribe(params => {
+    this.routerSubscribeDetail = this.route.params.subscribe(params => {
       console.log("pasa");
       let idMovie: number = +params['id'];
       console.log(idMovie);
@@ -36,10 +39,24 @@ export class DetailMovieComponent implements OnInit {
         }
       );
     });
+
+    this.routerSubscribeSimilar = this.route.params.subscribe(params => {
+      console.log("pasa");
+      let idMovie: number = +params['id'];
+      console.log(idMovie);
+      this.detailService.getSimilarMovies(idMovie).subscribe(
+        (data: any) => {
+          console.log("entro2");
+          this.similar = data;
+          console.log(data);
+        }
+      );
+    });
   }
 
   ngOnDestroy(){
-    this.routerSubscribe.unsubscribe();
+    this.routerSubscribeDetail.unsubscribe();
+    this.routerSubscribeSimilar.unsubscribe();
   }
 
   /**
