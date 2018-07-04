@@ -14,5 +14,36 @@ p {
     color: #FFFFFF;
     text-shadow: 2px 2px #000000;
     font-size: 110%;
+}
+
+a {
+    color: #FFFFFF;
+    text-shadow: 2px 2px #000000;
+    font-size: 110%;
+}
+
+.overviewClass {
     text-align: justify;
+}
+
+.goldStarClass {
+    img {
+        width: 30px;
+        height: 30px;
+    }
+    p {
+        color: rgb(228, 176, 32);
+        text-shadow: 2px 2px #000000;
+    }
+}
+
+.silverStarClass {
+    img {
+        width: 30px;
+        height: 30px;
+    }
+    p {
+        color: rgb(170, 170, 170);
+        text-shadow: 2px 2px #000000;
+    }
 }

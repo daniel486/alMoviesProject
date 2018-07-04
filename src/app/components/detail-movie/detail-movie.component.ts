@@ -51,4 +51,24 @@ export class DetailMovieComponent implements OnInit {
     return this.embedUrl + key;
   }
 
+  /**
+   * In this function we construct the string that will appear with the
+   * genres in the movie detail.
+   * @param mov this param is a MovieDescriptor to get the genres array
+   */
+  getDetailMovieGenres(movie: MovieDescriptor): string{
+
+    let genresDetail: string = "| ";
+
+    for(let i: number = 0; i < movie.genres.length; i++){
+      if(i == (movie.genres.length - 1)){
+        genresDetail += movie.genres[i].name + " |";
+      }else{
+        genresDetail += movie.genres[i].name + ", ";
+      }
+    }
+
+    return genresDetail;
+  }
+
 }
