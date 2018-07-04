@@ -1,13 +1,13 @@
-<div [ngStyle]="{'background': '#000000', 'z-index': '-2'}">
+<div [ngStyle]="{'background': '#48466D', 'z-index': '-2'}">
 <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')', 'width': '100%', 'background-size': 'cover', 'background-repeat': 'no-repeat'}">
   <div class="container">
     <div class="row">
       <div class="col col-lg-2 col-md-2">
-        <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" class="posterDetailImage">
+        <img [ngStyle]="{'margin-bottom': '20%'}" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" class="posterDetailImage">
       </div>
       <div class="col col-lg-1 col-md-1"></div>
       <div class="col col-lg-9 col-md-9">
-        <h2>{{ movie.title }} | </h2><br>
+        <h2>{{ movie.title }}</h2><br>
         <div class="row">
           <div class="col col-lg-7 col-md-7">
             <p>{{getDetailMovieGenres(movie)}}</p>
@@ -58,7 +58,54 @@
       </div>
     </div>
   </mat-tab>
-  <mat-tab label="Cast"> Content 2 </mat-tab>
+  <mat-tab label="Cast">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="space-around center">
+      <div *ngFor="let actor of cast.actors, let i = index">
+        <mat-card class="movie-card">
+          <a [routerLink]="['/actor', actor.id]" *ngIf='actor.profile_path !== null; then actor_img_available else actor_no_img_available'></a>
+          <ng-template #actor_img_available>
+              <img mat-card-image src="https://image.tmdb.org/t/p/h632{{ actor.profile_path }}" alt="{{actor.name}}">
+          </ng-template>
+          <ng-template #actor_no_img_available>
+            <div *ngIf='actor.gender == 1; then actor_female_photo else actor_male_photo'></div>
+          </ng-template>
+          <ng-template #actor_female_photo>
+            <img mat-card-image src="../../../assets/img/noPhotoFemale.jpg" alt="{{actor.name}}">
+          </ng-template>
+          <ng-template #actor_male_photo>
+            <img mat-card-image src="../../../assets/img/noPhotoMale.jpg" alt="{{actor.name}}">
+          </ng-template>
+          <mat-card-content class="card-tit">
+            <mat-card-title class="card-tit"><a [routerLink]="['/actor', actor.id]">{{ actor.name }}<br>{{ actor.character }}</a></mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Crew">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="space-around center">
+      <div *ngFor="let crew of cast.total_crew, let i = index">
+        <mat-card class="movie-card">
+          <a [routerLink]="['/actor', crew.id]" *ngIf='crew.profile_path !== null; then crew_img_available else crew_no_img_available'></a>
+          <ng-template #crew_img_available>
+            <img mat-card-image src="https://image.tmdb.org/t/p/h632{{ crew.profile_path }}" alt="{{crew.name}}">
+          </ng-template>
+          <ng-template #crew_no_img_available>
+            <div *ngIf='crew.gender == 1; then crew_female_photo else crew_male_photo'></div>
+          </ng-template>
+          <ng-template #crew_female_photo>
+            <img mat-card-image src="../../../assets/img/noPhotoFemale.jpg" alt="{{crew.name}}">
+          </ng-template>
+          <ng-template #crew_male_photo>
+            <img mat-card-image src="../../../assets/img/noPhotoMale.jpg" alt="{{crew.name}}">
+          </ng-template>
+          <mat-card-content class="card-tit">
+            <mat-card-title class="card-tit"><a [routerLink]="['/actor', crew.id]">{{ crew.name }}<br>{{ crew.job }}</a></mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
 </mat-tab-group>
   
 
