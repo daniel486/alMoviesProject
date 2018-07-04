@@ -1,4 +1,112 @@
-<p>
-  {{ movie.homepage }}----{{movie.backdrop_path}}
-</p>
-<!--<div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500'+movie.backdrop_path+')'}"></div>-->
+<div [ngStyle]="{'background': '#48466D', 'z-index': '-2'}">
+<div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w1280'+movie.backdrop_path+')', 'width': '100%', 'background-size': 'cover', 'background-repeat': 'no-repeat'}">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-2 col-md-2">
+        <img [ngStyle]="{'margin-bottom': '20%'}" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" class="posterDetailImage">
+      </div>
+      <div class="col col-lg-1 col-md-1"></div>
+      <div class="col col-lg-9 col-md-9">
+        <h2>{{ movie.title }}</h2><br>
+        <div class="row">
+          <div class="col col-lg-7 col-md-7">
+            <p>{{getDetailMovieGenres(movie)}}</p>
+          </div>
+          <div class="col col-lg-4 col-md-4" [ngStyle]="{'text-align': 'center'}">
+            <p>({{ movie.release_date | date:'MMM - yyyy' }})</p>
+          </div>
+          <div class="col col-lg-1 col-md-1" *ngIf="movie.vote_average > 6 then gold_star else silver_star">
+            
+          </div>
+          <ng-template #gold_star>
+            <div class="goldStarClass">
+              <p><img src="../../../assets/img/goldStar.png"> {{ movie.vote_average }}</p>
+            </div>
+          </ng-template>
+          <ng-template #silver_star>
+            <div class="silverStarClass">
+                <p><img src="../../../assets/img/silverStar.png"> {{ movie.vote_average }}</p>
+            </div>
+          </ng-template>
+        </div>
+        <p class="overviewClass">{{ movie.overview }}</p>
+        <div *ngFor="let video of movie.videos_trailer, let i = index" align="center">
+          <div *ngIf = 'i == 0; then first_trailer'>
+          </div>
+          <ng-template #first_trailer>
+            <iframe width="560" height="315" [src]="getMovieTrailerUrl(video.key) | safe" frameborder="0" allowfullscreen></iframe>
+          </ng-template>
+        </div>
+        <div [ngStyle]="{'text-align': 'center', 'margin-bottom': '5%', 'margin-top': '2%'}" *ngIf="movie.homepage !== null">
+          <a href="{{ movie.homepage }}">Official Homepage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<mat-tab-group mat-stretch-tabs [ngStyle]="{'background-color': 'lightgray'}">
+  <mat-tab label="Similar Movies">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="space-around center">
+      <div *ngFor="let movie of similar.movies, let i = index">
+        <mat-card class="movie-card">
+          <a [routerLink]="['/movie', movie.id]"><img mat-card-image src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.title}}"></a>
+          <mat-card-content class="card-tit">
+            <mat-card-title class="card-tit"><a [routerLink]="['/movie', movie.id]">{{ movie.title }}</a></mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Cast">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="space-around center">
+      <div *ngFor="let actor of cast.actors, let i = index">
+        <mat-card class="movie-card">
+          <div *ngIf='actor.profile_path !== null; then actor_img_available else actor_no_img_available'></div>
+          <ng-template #actor_img_available>
+              <a [routerLink]="['/actor', actor.id]"><img mat-card-image src="https://image.tmdb.org/t/p/h632{{ actor.profile_path }}" alt="{{actor.name}}"></a>
+          </ng-template>
+          <ng-template #actor_no_img_available>
+            <div *ngIf='actor.gender == 1; then actor_female_photo else actor_male_photo'></div>
+          </ng-template>
+          <ng-template #actor_female_photo>
+            <a [routerLink]="['/actor', actor.id]"><img mat-card-image src="../../../assets/img/noPhotoFemale.jpg" alt="{{actor.name}}"></a>
+          </ng-template>
+          <ng-template #actor_male_photo>
+            <a [routerLink]="['/actor', actor.id]"><img mat-card-image src="../../../assets/img/noPhotoMale.jpg" alt="{{actor.name}}"></a>
+          </ng-template>
+          <mat-card-content class="card-tit">
+            <mat-card-title class="card-tit"><a [routerLink]="['/actor', actor.id]">{{ actor.name }}<br>Char: {{ actor.character }}</a></mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Crew">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="space-around center">
+      <div *ngFor="let crew of cast.total_crew, let i = index">
+        <mat-card class="movie-card">
+          <div *ngIf='crew.profile_path !== null; then crew_img_available else crew_no_img_available'></div>
+          <ng-template #crew_img_available>
+            <a [routerLink]="['/actor', crew.id]"><img mat-card-image src="https://image.tmdb.org/t/p/h632{{ crew.profile_path }}" alt="{{crew.name}}"></a>
+          </ng-template>
+          <ng-template #crew_no_img_available>
+            <div *ngIf='crew.gender == 1; then crew_female_photo else crew_male_photo'></div>
+          </ng-template>
+          <ng-template #crew_female_photo>
+            <a [routerLink]="['/actor', crew.id]"><img mat-card-image src="../../../assets/img/noPhotoFemale.jpg" alt="{{crew.name}}"></a>
+          </ng-template>
+          <ng-template #crew_male_photo>
+            <a [routerLink]="['/actor', crew.id]"><img mat-card-image src="../../../assets/img/noPhotoMale.jpg" alt="{{crew.name}}"></a>
+          </ng-template>
+          <mat-card-content class="card-tit">
+            <mat-card-title class="card-tit"><a [routerLink]="['/actor', crew.id]">{{ crew.name }}<br>Job: {{ crew.job }}</a></mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+  
+
+<app-footer></app-footer>

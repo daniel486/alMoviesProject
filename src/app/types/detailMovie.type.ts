@@ -14,6 +14,7 @@ export class MovieDescriptor {
     public vote_average: number;
     public vote_count: number;
     public spoken_languages: SpokenLanguageDescriptor[] = [];
+    public videos_trailer: VideosTrailerDescriptor[] = [];
 
     public static import(rawData: any) {
         let movie: MovieDescriptor = new MovieDescriptor();
@@ -47,6 +48,19 @@ export class MovieDescriptor {
             }
         }
 
+        let video_trailer: VideosTrailerDescriptor;
+        if(rawData.videos.hasOwnProperty("results")){
+            for(var i = 0; i < rawData.videos.results.length; i++){
+                if(rawData.videos.results[i].hasOwnProperty("type")){
+                    if(rawData.videos.results[i].type == 'Trailer'){
+                        let row: any = rawData.videos.results[i];
+                        video_trailer = VideosTrailerDescriptor.import(row);
+                        movie.videos_trailer.push(video_trailer);
+                    }
+                }
+            }
+        }
+
         return movie;
     }
 }
@@ -59,5 +73,19 @@ export class SpokenLanguageDescriptor {
 
         spokenLanguageDescriptor.name = rawData.hasOwnProperty('name') ? rawData.name: '';
         return spokenLanguageDescriptor;
+    }
+}
+
+export class VideosTrailerDescriptor {
+    public key: string;
+    public name: string;
+
+    public static import(rawData: any) {
+        let videosTrailerDescriptor: VideosTrailerDescriptor = new VideosTrailerDescriptor();
+        
+        videosTrailerDescriptor.key = rawData.hasOwnProperty('key') ? rawData.key : '';
+        videosTrailerDescriptor.name = rawData.hasOwnProperty('name') ? rawData.name : '';
+
+        return videosTrailerDescriptor;
     }
 }

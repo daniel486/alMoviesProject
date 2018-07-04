@@ -1,5 +1,6 @@
-.example-card {
-    background-color:rgba(87, 212, 129, 0.329);
+.movie-card {
+    background-color:rgba(97, 97, 93, 0.616);
+    color: white;
     //opacity: 0.5;
     border-radius: 5%;
     max-width: 250px;
@@ -36,3 +37,7 @@ img:hover {
     -ms-transform: translate(-50%, -50%);
     text-align: center;
   }
+
+a {
+    color: #FFFFFF;
+}

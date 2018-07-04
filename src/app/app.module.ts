@@ -1,6 +1,6 @@
 //Angular imports
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +21,8 @@ import { ListActorsComponent } from './components/list-actors/list-actors.compon
 import { DetailActorComponent } from './components/detail-actor/detail-actor.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContentComponent } from './components/content/content.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FooterComponent } from './footer/footer.component';
     DetailActorComponent,
     NavbarComponent,
     ContentComponent,
-    FooterComponent
+    FooterComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

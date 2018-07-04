@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   movies = "Movies";
   actors = "Actors";
   tvShows = "TV Shows";
+  fontColorClass = "txt-company-white";
 
   constructor() { }
 
