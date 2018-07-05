@@ -23,6 +23,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContentComponent } from './components/content/content.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { RoundPipe } from './pipes/round.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SafePipe } from './pipes/safe.pipe';
     NavbarComponent,
     ContentComponent,
     FooterComponent,
-    SafePipe
+    SafePipe,
+    RoundPipe
   ],
   imports: [
     BrowserModule,
