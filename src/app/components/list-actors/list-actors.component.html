@@ -10,7 +10,7 @@
             <a [routerLink]="['/actor', actor.id]"><img mat-card-image src="https://image.tmdb.org/t/p/h632{{actor.profile_path}}" alt="{{actor.name}}"></a>
         </ng-template>
         <ng-template #no_photo_available>
-            <a [routerLink]="['/actor', actor.id]"><img mat-card-image src="../../../assets/img/noPhotoMale.jpg" alt="{{actor.name}}"></a>
+            <a [routerLink]="['/actor', actor.id]"><img mat-card-image src="assets/img/noPhotoMale.jpg" alt="{{actor.name}}"></a>
         </ng-template>
         <mat-card-content class="card-tit">
             <mat-card-title class="card-tit"><a [routerLink]="['/actor', actor.id]">{{ actor.name }}</a></mat-card-title>
