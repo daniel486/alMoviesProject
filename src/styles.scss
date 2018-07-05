@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 
 
@@ -52,12 +53,12 @@
 }
 
 .stars {
-  background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+  background:#000 url(./assets/img/stars.png) repeat top center;
   z-index:-3;
 }
 
 .twinkling{
-  background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+  background:transparent url(./assets/img/twinkling.png) repeat top center;
   z-index:-2;
 
   -moz-animation:move-twink-back 200s linear infinite;
@@ -68,7 +69,7 @@
 }
 
 .clouds{
-    background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+    background:transparent url(./assets/img/clouds.png) repeat top center;
     z-index:-1;
     
     -moz-animation:move-clouds-back 200s linear infinite;
