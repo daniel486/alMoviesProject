@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActorList } from '../../types/actors.type';
+import { ActorsService } from '../../services/actors.service';
 import { routerTransition } from '../../router.animations';
 
 @Component({
@@ -10,9 +12,20 @@ import { routerTransition } from '../../router.animations';
 })
 export class ListActorsComponent implements OnInit {
 
-  constructor() { }
+  public actors: ActorList = new ActorList();
+  public actorClass: string = "actor-card";
+
+  constructor(
+    private actorsService: ActorsService
+  ) { }
 
   ngOnInit() {
+    this.actorsService.getActors().subscribe(
+      (data: any) => {
+        this.actors = data;
+        console.log(data);
+      }
+    );
   }
 
 }

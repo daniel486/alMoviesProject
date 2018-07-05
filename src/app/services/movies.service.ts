@@ -15,7 +15,10 @@ export class MoviesService {
     private http: HttpClient
   ) { }
 
-  
+  /**
+   * This function provides the popular movies from TMDB API to render the list
+   * of movies.
+   */
   getMovies(){
     //console.log(this.url + this.apiKey);
     return this.http.get(this.url + this.apiKey)
