@@ -7,6 +7,7 @@ export class ActorDescriptor {
     public biography: string;
     public popularity: number;
     public profile_path: string;
+    public place_of_birth: string;
 
     public static import(rawData: any) {
 
@@ -19,6 +20,7 @@ export class ActorDescriptor {
         detailActor.biography = rawData.hasOwnProperty('biography') ? rawData.biography : '';
         detailActor.popularity = rawData.hasOwnProperty('popularity') ? rawData.popularity : 0;
         detailActor.profile_path = rawData.hasOwnProperty('profile_path') ? rawData.profile_path : '';
+        detailActor.place_of_birth = rawData.hasOwnProperty('place_of_birth') ? rawData.place_of_birth : '';
         
         return detailActor;
     }

@@ -13,7 +13,7 @@
             <p>{{getDetailMovieGenres(movie)}}</p>
           </div>
           <div class="col col-lg-4 col-md-4" [ngStyle]="{'text-align': 'center'}">
-            <p>({{ movie.release_date | date:'MMM - yyyy' }})</p>
+            <p><mat-icon>calendar_today</mat-icon> ({{ movie.release_date | date:'MMM - yyyy' }})</p>
           </div>
           <div class="col col-lg-1 col-md-1" *ngIf="movie.vote_average > 6 then gold_star else silver_star">
             
