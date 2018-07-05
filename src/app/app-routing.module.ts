@@ -6,6 +6,8 @@ import { ListMoviesComponent } from './components/list-movies/list-movies.compon
 import { DetailMovieComponent } from './components/detail-movie/detail-movie.component';
 import { ListActorsComponent } from './components/list-actors/list-actors.component';
 import { DetailActorComponent } from './components/detail-actor/detail-actor.component';
+import { ListTvComponent } from './components/list-tv/list-tv.component';
+import { DetailTvComponent } from './components/detail-tv/detail-tv.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,14 @@ const routes: Routes = [
   {
     path: 'actor/:id',
     component: DetailActorComponent
+  },
+  {
+    path: 'tvseries',
+    component: ListTvComponent
+  },
+  {
+    path: 'tv/:id',
+    component: DetailTvComponent
   }
 ];
 

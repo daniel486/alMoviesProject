@@ -1,0 +1,16 @@
+<div class="stars"></div>
+<div class="twinkling"></div>
+<div class="clouds"></div>
+
+<div class="container" fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div *ngFor="let serie of series.tv_series, let i = index">
+      <mat-card class="serie-card">
+        <a [routerLink]="['/tv', serie.id]"><img mat-card-image src="https://image.tmdb.org/t/p/w500{{serie.poster_path}}" alt="{{serie.name}}"></a>
+        <mat-card-content class="card-tit">
+            <mat-card-title class="card-tit"><a [routerLink]="['/tv', serie.id]">{{ serie.name }}</a></mat-card-title>
+        </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<app-footer></app-footer>

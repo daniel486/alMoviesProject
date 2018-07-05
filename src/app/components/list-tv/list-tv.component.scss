@@ -1,0 +1,42 @@
+.serie-card {
+    background-color:rgba(97, 97, 93, 0.616);
+    color: white;
+    border-radius: 5%;
+    max-width: 250px;
+    height: 415px;
+    margin-bottom: 4%;
+    margin-top: 3%;
+}
+
+.card-tit {
+    font-size: 100%;
+    text-align: center;
+}
+
+img {
+    width: 250px;
+    height: 350px;
+}
+
+img:hover {
+    filter: blur(5px);
+    //filter: sepia(60%);
+    transition:all .5s ease-in-out;
+}
+
+.text {
+    color: white;
+    font-size: 100%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    bottom: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+a {
+    color: #FFFFFF;
+}
