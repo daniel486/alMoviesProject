@@ -76,7 +76,7 @@ export class DetailMovieComponent implements OnInit {
   /**
    * In this function we construct the string that will appear with the
    * genres in the movie detail.
-   * @param mov this param is a MovieDescriptor to get the genres array
+   * @param movie this param is a MovieDescriptor to get the genres array
    */
   getDetailMovieGenres(movie: MovieDescriptor): string{
 

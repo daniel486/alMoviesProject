@@ -10,41 +10,47 @@
           <div *ngIf='actor.gender == 1; then female_photo else male_photo'></div>
         </ng-template>
         <ng-template #female_photo>
-          <img [ngStyle]="{'margin-bottom': '20%', 'width': '185px', 'height': '278px'}" src="../../../assets/img/noPhotoFemale.jpg" class="profileDetailImage">
+          <img [ngStyle]="{'margin-bottom': '20%', 'width': '185px', 'height': '278px'}" src="../../../assets/img/noPhotoFemale.jpg"
+            class="profileDetailImage">
         </ng-template>
         <ng-template #male_photo>
-          <img [ngStyle]="{'margin-bottom': '20%', 'width': '185px', 'height': '278px'}" src="../../../assets/img/noPhotoMale.jpg" class="profileDetailImage">
+          <img [ngStyle]="{'margin-bottom': '20%', 'width': '185px', 'height': '278px'}" src="../../../assets/img/noPhotoMale.jpg"
+            class="profileDetailImage">
         </ng-template>
       </div>
       <div class="col col-lg-1 col-md-1"></div>
       <div class="col col-lg-9 col-md-9">
-        <h2>{{ actor.name }}</h2><br>
+        <h2>{{ actor.name }}</h2>
+        <br>
         <div class="row">
           <div class="col col-lg-7 col-md-7">
-            <p><mat-icon>person_pin_circle</mat-icon> {{ actor.place_of_birth }}</p>
+            <p>
+              <mat-icon>person_pin_circle</mat-icon> {{ actor.place_of_birth }}</p>
           </div>
-            <div class="col col-lg-4 col-md-4" [ngStyle]="{'text-align': 'center'}">
-              <p><mat-icon>cake</mat-icon> {{ actor.birthday | date:'longDate' }}</p>
-            </div>
-            <div class="col col-lg-1 col-md-1" *ngIf="actor.popularity > 20 then gold_star else silver_star">
-              
-            </div>
-            <ng-template #gold_star>
-              <div class="goldStarClass">
-                <p><img src="../../../assets/img/goldStar.png"> {{ actor.popularity | round }}</p>
-              </div>
-            </ng-template>
-            <ng-template #silver_star>
-              <div class="silverStarClass">
-                  <p><img src="../../../assets/img/silverStar.png"> {{ actor.popularity | round }}</p>
-              </div>
-            </ng-template>
+          <div class="col col-lg-4 col-md-4" [ngStyle]="{'text-align': 'center'}">
+            <p>
+              <mat-icon>cake</mat-icon> {{ actor.birthday | date:'longDate' }}</p>
           </div>
-          <p class="overviewClass" [ngStyle]="{'margin-bottom': '5%', 'margin-top': '2%'}">Biography: {{ actor.biography }}</p>
+          <div class="col col-lg-1 col-md-1" *ngIf="actor.popularity > 20 then gold_star else silver_star">
+
+          </div>
+          <ng-template #gold_star>
+            <div class="goldStarClass">
+              <p>
+                <img src="../../../assets/img/goldStar.png"> {{ actor.popularity | round }}</p>
+            </div>
+          </ng-template>
+          <ng-template #silver_star>
+            <div class="silverStarClass">
+              <p>
+                <img src="../../../assets/img/silverStar.png"> {{ actor.popularity | round }}</p>
+            </div>
+          </ng-template>
         </div>
+        <p class="overviewClass" [ngStyle]="{'margin-bottom': '5%', 'margin-top': '2%'}">Biography: {{ actor.biography }}</p>
       </div>
     </div>
   </div>
-    
+</div>
   
   <app-footer></app-footer>
