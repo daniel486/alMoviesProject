@@ -52,6 +52,11 @@
   //background-attachment: fixed;
 }
 
+html {
+    background: rgb(157, 170, 230);
+    z-index: -7;
+}
+
 .stars {
   background:#000 url(./assets/img/stars.png) repeat top center;
   z-index:-3;
