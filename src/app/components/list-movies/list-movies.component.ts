@@ -22,7 +22,6 @@ export class ListMoviesComponent implements OnInit {
     this.moviesService.getMovies().subscribe(
       (data: any) => {
         this.movies = data;
-        //console.log(this.movies);
       }
     );
   }

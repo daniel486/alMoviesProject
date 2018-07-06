@@ -1,3 +1,6 @@
+/**
+ * This is the genres descriptor that contains all the genres.
+ */
 export class GenresDescriptor {
 
     public genres: GenreDescriptor[] = [];
@@ -18,6 +21,9 @@ export class GenresDescriptor {
     }
 }
 
+/**
+ * This genre descriptor set the types that will be used for genres.
+ */
 export class GenreDescriptor {
 
     public id: number;

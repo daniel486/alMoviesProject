@@ -1,3 +1,7 @@
+/**
+ * This is the descriptor for the search component, this store each
+ * item in an array, each item can be a tv serie, movie or a person.
+ */
 export class SearchDescriptor {
 
     public search: IndividualSearch[] = [];
@@ -19,6 +23,9 @@ export class SearchDescriptor {
     }
 }
 
+/**
+ * This is the individual search that stablish the types used in the search.
+ */
 export class IndividualSearch {
 
     public id: number;

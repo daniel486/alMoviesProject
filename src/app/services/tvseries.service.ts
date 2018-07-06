@@ -20,7 +20,6 @@ export class TvseriesService {
    * of TV Series in the list-tv component.
    */
   getTvSeries(){
-    //console.log(this.url + this.apiKey);
     return this.http.get(this.url + this.apiKey)
     .pipe(
       map((data)=>{

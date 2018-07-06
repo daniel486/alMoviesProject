@@ -20,12 +20,9 @@ export class MoviesService {
    * of movies.
    */
   getMovies(){
-    //console.log(this.url + this.apiKey);
     return this.http.get(this.url + this.apiKey)
     .pipe(
       map((data)=>{
-        //console.log(data);
-        //console.log(MovieList.import(data));
         return MovieList.import(data);
         
       })

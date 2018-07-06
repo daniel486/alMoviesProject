@@ -1,3 +1,6 @@
+/**
+ * This specifie a list of tv series in an array of individual series.
+ */
 export class TvList {
 
     public total_pages: number;
@@ -22,6 +25,9 @@ export class TvList {
     }
 }
 
+/**
+ * This specifies the types used for the tv series in the list-tv component
+ */
 export class TvIndividual {
 
     public id: number;

@@ -1,5 +1,9 @@
 import { GenreDescriptor } from "./genres.type";
 
+/**
+ * This is the type descriptor for movies and also contain the videos array for
+ * each movie.
+ */
 export class MovieDescriptor {
 
     public id: number;
@@ -65,6 +69,9 @@ export class MovieDescriptor {
     }
 }
 
+/**
+ * This class contain the type of the language spoken in a movie.
+ */
 export class SpokenLanguageDescriptor {
     public name: string;
 
@@ -76,6 +83,9 @@ export class SpokenLanguageDescriptor {
     }
 }
 
+/**
+ * This contain the type for the videos stored in the MovieDescriptor.
+ */
 export class VideosTrailerDescriptor {
     public key: string;
     public name: string;

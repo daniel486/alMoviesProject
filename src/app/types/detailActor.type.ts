@@ -1,3 +1,6 @@
+/**
+ * This class contains the type descriptor for the actor.
+ */
 export class ActorDescriptor {
 
     public id: number;

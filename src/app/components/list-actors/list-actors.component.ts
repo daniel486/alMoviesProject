@@ -23,7 +23,6 @@ export class ListActorsComponent implements OnInit {
     this.actorsService.getActors().subscribe(
       (data: any) => {
         this.actors = data;
-        console.log(data);
       }
     );
   }

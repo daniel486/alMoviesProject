@@ -1,3 +1,6 @@
+/**
+ * This specifies a list of similar movies in an array of individual movies.
+ */
 export class SimilarMoviesDescriptor {
 
     public movies: MovieIndividual[] = [];
@@ -19,6 +22,9 @@ export class SimilarMoviesDescriptor {
     }
 }
 
+/**
+ * This specifies the types used for the movies in the detail-movie component
+ */
 export class MovieIndividual {
 
     public id: number;
@@ -36,6 +42,9 @@ export class MovieIndividual {
     }
 }
 
+/**
+ * This specifies a list of similar series in an array of individual series.
+ */
 export class SimilarSeriesDescriptor {
 
     public series: SerieIndividual[] = [];
@@ -57,6 +66,9 @@ export class SimilarSeriesDescriptor {
     }
 }
 
+/**
+ * This specifies the types used for the series in the detail-tv component
+ */
 export class SerieIndividual {
 
     public id: number;
