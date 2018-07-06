@@ -27,6 +27,7 @@ import { SafePipe } from './pipes/safe.pipe';
 import { RoundPipe } from './pipes/round.pipe';
 import { ListTvComponent } from './components/list-tv/list-tv.component';
 import { DetailTvComponent } from './components/detail-tv/detail-tv.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DetailTvComponent } from './components/detail-tv/detail-tv.component';
     SafePipe,
     RoundPipe,
     ListTvComponent,
-    DetailTvComponent
+    DetailTvComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

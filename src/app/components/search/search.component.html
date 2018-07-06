@@ -1,0 +1,47 @@
+<input type="text" aria-label="Search" class="input form-control mr-sm-2" placeholder="Search..."
+  [(ngModel)]="query" (ngModelChange)="searchMulti()">
+<div>
+  <div *ngFor="let searchDesc of search.search">
+    <div *ngIf="searchDesc.poster_path !== null || searchDesc.profile_path !== null">
+      <div *ngIf="movieType == searchDesc.media_type">
+        <div>
+          <img class="image-result" src="https://image.tmdb.org/t/p/w185{{ searchDesc.poster_path }}" />
+          <a class="resultSearch" (click)="cleanInput()" [routerLink]="['/movie', searchDesc.id]">
+            <i>{{ searchDesc.title }} |
+              <mat-icon>movie_creation</mat-icon>
+            </i>
+          </a>
+        </div>
+      </div>
+      <div *ngIf="serieType == searchDesc.media_type">
+        <div>
+          <img class="image-result" src="https://image.tmdb.org/t/p/w185{{ searchDesc.poster_path }}" />
+          <a class="resultSearch" (click)="cleanInput()" [routerLink]="['/tv', searchDesc.id]">
+            <i>{{ searchDesc.name }} |
+              <mat-icon>tv</mat-icon>
+            </i>
+          </a>
+        </div>
+      </div>
+      <div *ngIf="peopleType == searchDesc.media_type">
+        <div *ngIf='searchDesc.profile_path !== null; then available_img else no_available_img'></div>
+        <ng-template #available_img>
+          <img class="image-result" src="https://image.tmdb.org/t/p/w185{{ searchDesc.profile_path }}" />
+          <a class="resultSearch" (click)="cleanInput()" [routerLink]="['/actor', searchDesc.id]">
+            <i>{{ searchDesc.name }} |
+              <mat-icon>person</mat-icon>
+            </i>
+          </a>
+        </ng-template>
+        <ng-template #no_available_img>
+          <img class="image-result" src="assets/img/noPhotoMale.jpg" />
+          <a class="resultSearch" (click)="cleanInput()" [routerLink]="['/actor', searchDesc.id]">
+            <i>{{ searchDesc.name }} |
+              <mat-icon>person</mat-icon>
+            </i>
+          </a>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
