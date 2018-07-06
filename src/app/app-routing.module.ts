@@ -9,6 +9,9 @@ import { DetailActorComponent } from './components/detail-actor/detail-actor.com
 import { ListTvComponent } from './components/list-tv/list-tv.component';
 import { DetailTvComponent } from './components/detail-tv/detail-tv.component';
 
+/**
+ * This are the paths of the page.
+ */
 const routes: Routes = [
   {
     path: '',

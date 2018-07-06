@@ -4,6 +4,10 @@ export function routerTransition() {
     return slideToLeft();
 }
 
+/**
+ * This function make an animation that change the page in form of slide
+ * in left direction.
+ */
 export function slideToLeft() {
     return trigger('routerTransition', [
         state('void', style({position:'absolute', width:'100%'}) ),

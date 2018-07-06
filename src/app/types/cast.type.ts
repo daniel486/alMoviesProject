@@ -1,3 +1,7 @@
+/**
+ * This class contains the descriptor for the movies that contain the cast and crew
+ * of a movie.
+ */
 export class CastMoviesDescriptor {
 
     public actors: IndividualActor[] = [];
@@ -32,6 +36,9 @@ export class CastMoviesDescriptor {
     }
 }
 
+/**
+ * This class stablish the types for the individual actors and crew.
+ */
 export class IndividualActor {
 
     public id: number;
@@ -55,6 +62,10 @@ export class IndividualActor {
     }
 }
 
+/**
+ * This class contains the descriptor for the tv series that contain the cast and crew
+ * of a serie.
+ */
 export class CastSeriesDescriptor {
 
     public actors: IndividualActor[] = [];

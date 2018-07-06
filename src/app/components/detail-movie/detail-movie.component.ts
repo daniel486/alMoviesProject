@@ -51,7 +51,6 @@ export class DetailMovieComponent implements OnInit {
       let idMovie: number = +params['id'];
       this.detailService.getMovieCast(idMovie).subscribe(
         (data: any) => {
-          console.log(data);
           this.cast = data;
         }
       );

@@ -23,6 +23,10 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * This function make a search if the query is filled, in other case clean
+   * the search descriptor.
+   */
   searchMulti(){
     if(this.query){
       this.searchService.getMultipleSearch(this.query).subscribe(
@@ -34,9 +38,9 @@ export class SearchComponent implements OnInit {
       this.search = new SearchDescriptor;
     }
   }
-  
+
   /**
-  * This function clean the query input
+  * This function clean the query input and set the search descriptor.
   **/
   cleanInput() {
     this.query = "";

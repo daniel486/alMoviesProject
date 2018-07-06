@@ -1,3 +1,6 @@
+/**
+ * This specifies a list of actors in an array of individual actors.
+ */
 export class ActorList {
 
     public total_pages: number;
@@ -22,6 +25,9 @@ export class ActorList {
     }
 }
 
+/**
+ * This specifies the types used for the actors in the list-actors component
+ */
 export class ActorIndividual {
 
     public id: number;

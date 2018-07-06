@@ -1,3 +1,6 @@
+/**
+ * This specifies a list of movies in an array of individual movies.
+ */
 export class MovieList {
 
     public total_pages: number;
@@ -22,6 +25,9 @@ export class MovieList {
     }
 }
 
+/**
+ * This specifies the types used for the movies in the list-movies component
+ */
 export class MovieIndividual {
 
     public id: number;

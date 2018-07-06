@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  /**
+   * This variales are used to set the active mat tab link
+   */
   activeLink = "";
   movies = "Movies";
   actors = "Actors";

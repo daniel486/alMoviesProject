@@ -1,5 +1,9 @@
 import { GenreDescriptor } from "./genres.type";
 
+/**
+ * This is the type descriptor for tv series and also contain the videos array for
+ * each serie.
+ */
 export class TvDescriptor {
 
     public id: number;
@@ -55,6 +59,9 @@ export class TvDescriptor {
     }
 }
 
+/**
+ * This contain the type for the videos stored in the TvDescriptor.
+ */
 export class VideosTrailerDescriptor {
     public key: string;
     public name: string;

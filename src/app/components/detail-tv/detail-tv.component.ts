@@ -51,7 +51,6 @@ export class DetailTvComponent implements OnInit {
       let idSerie: number = +params['id'];
       this.detailService.getSerieCast(idSerie).subscribe(
         (data: any) => {
-          console.log(data);
           this.cast = data;
         }
       );
