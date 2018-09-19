@@ -43,12 +43,12 @@ describe('AppComponent', () => {
   });
 
 
-  fit('should create the app component', () => {
+  it('should create the app component', () => {
     console.log(component);
     expect(component).toBeDefined();
   });
 
-  fit(`should have as title 'app'`, () => {
+  it(`should have as title 'app'`, () => {
     expect(component.title).toEqual('app');
   });
 
