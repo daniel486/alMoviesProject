@@ -1,6 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DetailActorComponent } from './detail-actor.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { RoundPipe } from '../../pipes/round.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActorDescriptor } from '../../types/detailActor.type';
+
+class MockActivatedRoute extends ActivatedRoute {
+  constructor() {
+    super();
+    this.params = of({id: "550"})
+  }
+}
 
 describe('DetailActorComponent', () => {
   let component: DetailActorComponent;
@@ -8,9 +21,14 @@ describe('DetailActorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailActorComponent ]
-    })
-    .compileComponents();
+      imports: [ HttpClientTestingModule, BrowserAnimationsModule ],
+      declarations: [ DetailActorComponent, RoundPipe ],
+      schemas: [ NO_ERRORS_SCHEMA ],
+      providers: [
+        { provide: ActivatedRoute, useClass: MockActivatedRoute },
+        { provide: ActorDescriptor }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +37,27 @@ describe('DetailActorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the DetailActorComponent', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should create the actor', () => {
+    component.actor = ActorDescriptor.import({
+      "birthday":"1969-10-03",
+      "known_for_department":"Production",
+      "deathday":null,
+      "id":550,
+      "name":"Jennifer Todd",
+      "also_known_as":[],
+      "gender":1,
+      "biography":"",
+      "popularity":0.6,
+      "place_of_birth":"Los Angeles, California, USA",
+      "profile_path":"\/aIecrmmYpqnyCWQArAueqD60qok.jpg",
+      "adult":false,
+      "imdb_id":"nm0865189",
+      "homepage":null
+    });
+    expect(component.actor.name).toEqual("Jennifer Todd");
   });
 });
