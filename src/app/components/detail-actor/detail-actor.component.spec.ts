@@ -25,8 +25,7 @@ describe('DetailActorComponent', () => {
       declarations: [ DetailActorComponent, RoundPipe ],
       schemas: [ NO_ERRORS_SCHEMA ],
       providers: [
-        { provide: ActivatedRoute, useClass: MockActivatedRoute },
-        { provide: ActorDescriptor }
+        { provide: ActivatedRoute, useClass: MockActivatedRoute }
       ]
     }).compileComponents();
   }));
