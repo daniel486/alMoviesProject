@@ -13,7 +13,7 @@ import { CastMoviesDescriptor } from '../../types/cast.type';
 class MockActivatedRoute extends ActivatedRoute {
   constructor() {
     super();
-    this.params = of({id: "550"})
+    this.params = of({ id: "550" })
   }
 }
 
@@ -23,14 +23,14 @@ describe('DetailMovieComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule, BrowserAnimationsModule ],
-      declarations: [ DetailMovieComponent, SafePipe ],
-      schemas: [ NO_ERRORS_SCHEMA ],
+      imports: [HttpClientTestingModule, BrowserAnimationsModule],
+      declarations: [DetailMovieComponent, SafePipe],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [
         { provide: ActivatedRoute, useClass: MockActivatedRoute }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -39,90 +39,173 @@ describe('DetailMovieComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    component.ngOnDestroy();
+  });
+
   fit('should create the DetailMovieComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create the movie', () => {
+  fit('should create the movie', () => {
     component.movie = MovieDescriptor.import({
-      "birthday":"1969-10-03",
-      "known_for_department":"Production",
-      "deathday":null,
-      "id":550,
-      "name":"Jennifer Todd",
-      "also_known_as":[],
-      "gender":1,
-      "biography":"",
-      "popularity":0.6,
-      "place_of_birth":"Los Angeles, California, USA",
-      "profile_path":"\/aIecrmmYpqnyCWQArAueqD60qok.jpg",
-      "adult":false,
-      "imdb_id":"nm0865189",
-      "homepage":null
+      "adult": false,
+      "backdrop_path": "/o5l7nvYLfisSndoOIbMxoUHfdNd.jpg",
+      "belongs_to_collection": null,
+      "budget": 40000000,
+      "genres": [
+        { "id": 28, "name": "Action" },
+        { "id": 878, "name": "Science Fiction" },
+        { "id": 12, "name": "Adventure" }
+      ],
+      "homepage": null,
+      "id": 841,
+      "imdb_id": "tt0087182",
+      "original_language": "en",
+      "original_title": "Dune",
+      "overview": "In the year 10,191, the world is at war for control of the desert planet Dune – the only place where the time-travel substance 'Spice' can be found. But when one leader gives up control, it's only so he can stage a coup with some unsavory characters.",
+      "popularity": 17.43,
+      "poster_path": "/ngUaHgSZGkKy1Izwjk7qwZLOC5A.jpg",
+      "production_companies": [{ "id": 10308, "logo_path": null, "name": "Dino De Laurentiis Company", "origin_country": "US" }],
+      "production_countries": [{ "iso_3166_1": "US", "name": "United States of America" }],
+      "release_date": "1984-12-14",
+      "revenue": 30925690,
+      "runtime": 137,
+      "spoken_languages": [
+        { "iso_639_1": "en", "name": "English" },
+        { "iso_639_1": "it", "name": "Italiano" }
+      ],
+      "status": "Released",
+      "tagline": "A world beyond your experience, beyond your imagination.",
+      "title": "Dune",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 803,
+      "videos":{}
     });
-    //expect(component.actor.name).toEqual("Jennifer Todd");
+    expect(component.movie.title).toEqual("Dune");
   });
 
   fit('should create the similar movies', () => {
     component.similar = SimilarMoviesDescriptor.import({
-      "page":1,
-      "results":[
+      "page": 1,
+      "results": [
         {
-          "adult":false,
-          "backdrop_path":"/jMzVSwQp1lLVq9fnQQ4yOjr1YZ2.jpg",
-          "genre_ids":[28,80,18,53],
-          "id":949,
-          "original_language":"en",
-          "original_title":"Heat",
-          "overview":"Obsessive master thief, Neil McCauley leads a top-notch crew on various daring heists throughout Los Angeles while determined detective, Vincent Hanna pursues him without rest. Each man recognizes and respects the ability and the dedication of the other even though they are aware their cat-and-mouse game may end in violence.",
-          "poster_path":"/zMyfPUelumio3tiDKPffaUpsQTD.jpg",
-          "release_date":"1995-12-15",
-          "title":"Heat",
-          "video":false,
-          "vote_average":7.8,
-          "vote_count":2644,
-          "popularity":22.893
+          "adult": false,
+          "backdrop_path": "/jMzVSwQp1lLVq9fnQQ4yOjr1YZ2.jpg",
+          "genre_ids": [28, 80, 18, 53],
+          "id": 949,
+          "original_language": "en",
+          "original_title": "Heat",
+          "overview": "Obsessive master thief, Neil McCauley leads a top-notch crew on various daring heists throughout Los Angeles while determined detective, Vincent Hanna pursues him without rest. Each man recognizes and respects the ability and the dedication of the other even though they are aware their cat-and-mouse game may end in violence.",
+          "poster_path": "/zMyfPUelumio3tiDKPffaUpsQTD.jpg",
+          "release_date": "1995-12-15",
+          "title": "Heat",
+          "video": false,
+          "vote_average": 7.8,
+          "vote_count": 2644,
+          "popularity": 22.893
         },
         {
-          "adult":false,
-          "backdrop_path":"/bzkTNB2lXijMbRuk0CVq3jJPTCv.jpg",
-          "genre_ids":[80,18,53],
-          "id":11657,
-          "original_language":"fr",
-          "original_title":"Le Cercle rouge",
-          "overview":"Master thief Corey is fresh out of prison. But instead of toeing the line of law-abiding freedom, he finds his steps leading back to the shadowy world of crime, crossing those of a notorious escapee and alcoholic ex-cop. As the unlikely trio plots a heist against impossible odds, their trail is pursued by a relentless inspector, and fate seals their destinies.",
-          "poster_path":"/jUA29RNHCs82s0v4nDlhZVS9SNC.jpg",
-          "release_date":"1970-10-19",
-          "title":"Le Cercle Rouge",
-          "video":false,
-          "vote_average":7.7,
-          "vote_count":185,
-          "popularity":8.161
+          "adult": false,
+          "backdrop_path": "/bzkTNB2lXijMbRuk0CVq3jJPTCv.jpg",
+          "genre_ids": [80, 18, 53],
+          "id": 11657,
+          "original_language": "fr",
+          "original_title": "Le Cercle rouge",
+          "overview": "Master thief Corey is fresh out of prison. But instead of toeing the line of law-abiding freedom, he finds his steps leading back to the shadowy world of crime, crossing those of a notorious escapee and alcoholic ex-cop. As the unlikely trio plots a heist against impossible odds, their trail is pursued by a relentless inspector, and fate seals their destinies.",
+          "poster_path": "/jUA29RNHCs82s0v4nDlhZVS9SNC.jpg",
+          "release_date": "1970-10-19",
+          "title": "Le Cercle Rouge",
+          "video": false,
+          "vote_average": 7.7,
+          "vote_count": 185,
+          "popularity": 8.161
         }
       ],
-      "total_pages":1,
-      "total_results":2
+      "total_pages": 1,
+      "total_results": 2
     });
     expect(component.similar.movies[0].title).toEqual("Heat");
   });
 
-  it('should create the cast of the movie', () => {
+  fit('should create the cast of the movie', () => {
     component.cast = CastMoviesDescriptor.import({
-      "birthday":"1969-10-03",
-      "known_for_department":"Production",
-      "deathday":null,
-      "id":550,
-      "name":"Jennifer Todd",
-      "also_known_as":[],
-      "gender":1,
-      "biography":"",
-      "popularity":0.6,
-      "place_of_birth":"Los Angeles, California, USA",
-      "profile_path":"\/aIecrmmYpqnyCWQArAueqD60qok.jpg",
-      "adult":false,
-      "imdb_id":"nm0865189",
-      "homepage":null
+      "id": 841,
+      "cast": [{
+        "cast_id": 23,
+        "character": "Paul Atreides",
+        "credit_id": "52fe427fc3a36847f8023661",
+        "gender": 2,
+        "id": 6677,
+        "name": "Kyle MacLachlan",
+        "order": 0,
+        "profile_path": "/7DnMuDlSdpycAQQxOIDmV66qerc.jpg"
+      }, {
+        "cast_id": 16,
+        "character": "Lady Jessica Atreides",
+        "credit_id": "52fe427fc3a36847f8023645",
+        "gender": 1,
+        "id": 12513,
+        "name": "Francesca Annis",
+        "order": 1,
+        "profile_path": "/rtbYkuenkq8Kfc5LwzWYtVD3eNH.jpg"
+      }]
     });
-    //expect(component.actor.name).toEqual("Jennifer Todd");
+    expect(component.cast.actors[0].character).toEqual("Paul Atreides");
+    expect(component.cast.actors[1].character).toEqual("Lady Jessica Atreides");
+  });
+
+  fit('should return the url for the trailer given the key', () => {
+    let movieTrailer: string = component.getMovieTrailerUrl("WaG1KZqrLvM");
+    expect(component).toBeDefined();
+    expect(movieTrailer).toBe("https://www.youtube.com/embed/WaG1KZqrLvM");
+  });
+
+  fit('Should send the detail movie genres based on a MovieDescriptor', () => {
+    console.log(component.movie);
+    expect(component.movie).toBeDefined();
+    component.movie = MovieDescriptor.import({
+      "adult": false,
+      "backdrop_path": "/o5l7nvYLfisSndoOIbMxoUHfdNd.jpg",
+      "belongs_to_collection": null,
+      "budget": 40000000,
+      "genres": [
+        { "id": 28, "name": "Action" },
+        { "id": 878, "name": "Science Fiction" },
+        { "id": 12, "name": "Adventure" }
+      ],
+      "homepage": null,
+      "id": 841,
+      "imdb_id": "tt0087182",
+      "original_language": "en",
+      "original_title": "Dune",
+      "overview": "In the year 10,191, the world is at war for control of the desert planet Dune – the only place where the time-travel substance 'Spice' can be found. But when one leader gives up control, it's only so he can stage a coup with some unsavory characters.",
+      "popularity": 17.43,
+      "poster_path": "/ngUaHgSZGkKy1Izwjk7qwZLOC5A.jpg",
+      "production_companies": [{ "id": 10308, "logo_path": null, "name": "Dino De Laurentiis Company", "origin_country": "US" }],
+      "production_countries": [{ "iso_3166_1": "US", "name": "United States of America" }],
+      "release_date": "1984-12-14",
+      "revenue": 30925690,
+      "runtime": 137,
+      "spoken_languages": [
+        { "iso_639_1": "en", "name": "English" },
+        { "iso_639_1": "it", "name": "Italiano" }
+      ],
+      "status": "Released",
+      "tagline": "A world beyond your experience, beyond your imagination.",
+      "title": "Dune",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 803,
+      "videos":{}
+    });
+
+    console.log(component.movie);
+
+    let genresDetail: string = component.getDetailMovieGenres(component.movie);
+
+    expect(component).toBeDefined();
+    expect(genresDetail).toEqual("| Action, Science Fiction, Adventure |");
   });
 });
