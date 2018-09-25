@@ -47,7 +47,7 @@ describe('DetailMovieComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should create the movie', () => {
+  it('should create the movie', () => {
     component.movie = MovieDescriptor.import({
       "adult": false,
       "backdrop_path": "/o5l7nvYLfisSndoOIbMxoUHfdNd.jpg",
@@ -129,7 +129,7 @@ describe('DetailMovieComponent', () => {
     expect(component.similar.movies[0].title).toEqual("Heat");
   });
 
-  fit('should create the cast of the movie', () => {
+  it('should create the cast of the movie', () => {
     component.cast = CastMoviesDescriptor.import({
       "id": 841,
       "cast": [{
