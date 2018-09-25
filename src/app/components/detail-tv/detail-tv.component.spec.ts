@@ -189,7 +189,7 @@ describe('DetailTvComponent', () => {
     expect(serieTrailer).toBe("https://www.youtube.com/embed/R1v0uFms68U");
   });
 
-  it('Should send the detail movie genres based on a MovieDescriptor', () => {
+  it('Should send the detail serie genres based on a TvDescriptor', () => {
     expect(component.serie).toBeDefined();
     component.serie = TvDescriptor.import({
       "backdrop_path": null,

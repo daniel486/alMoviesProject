@@ -43,11 +43,7 @@ describe('DetailMovieComponent', () => {
     component.ngOnDestroy();
   });
 
-<<<<<<< HEAD
   it('should create the DetailMovieComponent', () => {
-=======
-  fit('should create the DetailMovieComponent', () => {
->>>>>>> 219b13fdc4e1d3efb6a4c226065cc0bacedf9c80
     expect(component).toBeTruthy();
   });
 
@@ -154,7 +150,6 @@ describe('DetailMovieComponent', () => {
         "name": "Francesca Annis",
         "order": 1,
         "profile_path": "/rtbYkuenkq8Kfc5LwzWYtVD3eNH.jpg"
-<<<<<<< HEAD
       }],
     "crew": [{
       "cast_id": 23,
@@ -224,58 +219,6 @@ describe('DetailMovieComponent', () => {
           "size":1080,
           "type":"Trailer"}]}
     });
-=======
-      }]
-    });
-    expect(component.cast.actors[0].character).toEqual("Paul Atreides");
-    expect(component.cast.actors[1].character).toEqual("Lady Jessica Atreides");
-  });
-
-  fit('should return the url for the trailer given the key', () => {
-    let movieTrailer: string = component.getMovieTrailerUrl("WaG1KZqrLvM");
-    expect(component).toBeDefined();
-    expect(movieTrailer).toBe("https://www.youtube.com/embed/WaG1KZqrLvM");
-  });
-
-  fit('Should send the detail movie genres based on a MovieDescriptor', () => {
-    console.log(component.movie);
-    expect(component.movie).toBeDefined();
-    component.movie = MovieDescriptor.import({
-      "adult": false,
-      "backdrop_path": "/o5l7nvYLfisSndoOIbMxoUHfdNd.jpg",
-      "belongs_to_collection": null,
-      "budget": 40000000,
-      "genres": [
-        { "id": 28, "name": "Action" },
-        { "id": 878, "name": "Science Fiction" },
-        { "id": 12, "name": "Adventure" }
-      ],
-      "homepage": null,
-      "id": 841,
-      "imdb_id": "tt0087182",
-      "original_language": "en",
-      "original_title": "Dune",
-      "overview": "In the year 10,191, the world is at war for control of the desert planet Dune – the only place where the time-travel substance 'Spice' can be found. But when one leader gives up control, it's only so he can stage a coup with some unsavory characters.",
-      "popularity": 17.43,
-      "poster_path": "/ngUaHgSZGkKy1Izwjk7qwZLOC5A.jpg",
-      "production_companies": [{ "id": 10308, "logo_path": null, "name": "Dino De Laurentiis Company", "origin_country": "US" }],
-      "production_countries": [{ "iso_3166_1": "US", "name": "United States of America" }],
-      "release_date": "1984-12-14",
-      "revenue": 30925690,
-      "runtime": 137,
-      "spoken_languages": [
-        { "iso_639_1": "en", "name": "English" },
-        { "iso_639_1": "it", "name": "Italiano" }
-      ],
-      "status": "Released",
-      "tagline": "A world beyond your experience, beyond your imagination.",
-      "title": "Dune",
-      "video": false,
-      "vote_average": 6.4,
-      "vote_count": 803,
-      "videos":{}
-    });
->>>>>>> 219b13fdc4e1d3efb6a4c226065cc0bacedf9c80
 
     console.log(component.movie);
 
