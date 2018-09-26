@@ -20,7 +20,7 @@ describe('SearchService', () => {
     httpMock = TestBed.get(HttpTestingController);
   });
 
-  it('should be created', inject([SearchService], (service: SearchService) => {
+  it('should create the search service', inject([SearchService], (service: SearchService) => {
     expect(service).toBeTruthy();
   }));
 
@@ -47,7 +47,7 @@ describe('SearchService', () => {
       }]
     };
 
-    let respo = service.getMultipleSearch("test").subscribe();
+    service.getMultipleSearch("test").subscribe();
 
     const req = httpMock.expectOne("https://api.themoviedb.org/3/search/multi?api_key=14383e7a1e2a63bc1e67c0052614384f&query=test");
 
