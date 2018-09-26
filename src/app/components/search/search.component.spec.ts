@@ -3,6 +3,8 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { SearchComponent } from './search.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SearchService } from '../../services/search.service';
+import { SearchDescriptor } from '../../types/search.type';
+import { of } from 'rxjs';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -38,7 +40,7 @@ describe('SearchComponent', () => {
     expect(service).toBeTruthy();
   });
 
-  fit('should excecute the multiple search', fakeAsync(() => {
+  it('should excecute the multiple search', () => {
     let response = {
       "page": 1,
       "total_results": 1,
@@ -61,21 +63,28 @@ describe('SearchComponent', () => {
       }]
     };
 
-    let respo = service.getMultipleSearch("test").subscribe();
-
-    const req = httpMock.expectOne("https://api.themoviedb.org/3/search/multi?api_key=14383e7a1e2a63bc1e67c0052614384f&query=test");
-
-    expect(req.request.method).toEqual("GET");
-
-    req.flush(response);
-
-    tick();
-
-    //expect(respo.)
-
     component.searchMulti();
 
     component.query = "test";
-    //console.log(component.searchMulti());
-  }));
+
+    console.log(component.search);
+
+    spyOn(service, 'getMultipleSearch').and.returnValue(of(SearchDescriptor.import(response)));
+
+    //component.search = SearchDescriptor.import(response);
+
+    component.searchMulti();
+
+    console.log(component.search);
+
+    fixture.detectChanges();
+
+    console.log(component.search);
+
+    expect(component.search).toEqual(SearchDescriptor.import(response));
+
+    
+
+    
+  });
 });
