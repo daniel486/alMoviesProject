@@ -20,7 +20,7 @@ describe('ActorsService', () => {
     httpMock = TestBed.get(HttpTestingController);
   });
 
-  it('should create the search service', inject([ActorsService], (service: ActorsService) => {
+  it('should create the actor service', inject([ActorsService], (service: ActorsService) => {
     expect(service).toBeTruthy();
   }));
 
