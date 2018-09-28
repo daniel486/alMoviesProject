@@ -1,6 +1,6 @@
 import { ActorList } from './actors.type';
 
-describe('TvseriesService', () => {
+describe('Actor Type', () => {
 
     let actorType: ActorList;
 
