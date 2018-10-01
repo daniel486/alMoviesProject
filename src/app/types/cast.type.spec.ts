@@ -135,7 +135,7 @@ describe('Cast Type', () => {
         expect(castSerieType.total_crew[0].profile_path).toBe("");
     });
 
-    it('should skip the first confitionals for CastMoviesDescriptor', () => {
+    it('should skip the first conditionals for CastMoviesDescriptor', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },
@@ -147,7 +147,7 @@ describe('Cast Type', () => {
         expect(castMovieType.actors.length).toBe(0);
     });
 
-    it('should skip the first confitionals for CastSeriesDescriptor', () => {
+    it('should skip the first conditionals for CastSeriesDescriptor', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },

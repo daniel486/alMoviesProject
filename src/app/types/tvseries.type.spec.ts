@@ -44,7 +44,7 @@ describe('TV List Type', () => {
         expect(tvSeriesType.total_pages).toBe(0);
     });
 
-    it('should skip the first confitionals for TvList', () => {
+    it('should skip the first conditionals for TvList', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },

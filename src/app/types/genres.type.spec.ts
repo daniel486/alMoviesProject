@@ -36,7 +36,7 @@ describe('Genres Type', () => {
         expect(genreType.genres[0].name).toBe("");
     });
 
-    it('should skip the first confitionals for GenresDescriptor', () => {
+    it('should skip the first conditionals for GenresDescriptor', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },

@@ -53,7 +53,7 @@ describe('Search Type', () => {
         expect(searchType.search[0].profile_path).toBe("");
     });
 
-    it('should skip the first confitionals for SearchDescriptor', () => {
+    it('should skip the first conditionals for SearchDescriptor', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },

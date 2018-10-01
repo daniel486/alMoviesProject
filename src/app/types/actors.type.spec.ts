@@ -85,7 +85,7 @@ describe('Actor Type', () => {
         expect(actorType.total_pages).toBe(0);
     });
 
-    it('should skip the first confitionals for ActorList', () => {
+    it('should skip the first conditionals for ActorList', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },

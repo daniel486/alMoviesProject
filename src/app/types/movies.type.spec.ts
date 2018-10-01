@@ -52,7 +52,7 @@ describe('Movies Type', () => {
         expect(movieType.total_pages).toBe(0);
     });
 
-    it('should skip the first confitionals for MovieList', () => {
+    it('should skip the first conditionals for MovieList', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },

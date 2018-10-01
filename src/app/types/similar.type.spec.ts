@@ -89,7 +89,7 @@ describe('Similar Type', () => {
         expect(similarMoviesType.movies.length).toBe(0);
     });
 
-    it('should skip the first confitionals for SimilarSeriesDescriptor', () => {
+    it('should skip the first conditionals for SimilarSeriesDescriptor', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },
