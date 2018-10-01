@@ -1,7 +1,7 @@
 import { CastMoviesDescriptor } from './cast.type';
 import { CastSeriesDescriptor } from './cast.type';
 
-describe('Actor Type', () => {
+describe('Cast Type', () => {
 
     let castMovieType: CastMoviesDescriptor;
     let castSerieType: CastSeriesDescriptor;

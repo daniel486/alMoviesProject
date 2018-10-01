@@ -1,6 +1,6 @@
 import { GenresDescriptor } from './genres.type';
 
-describe('Actor Type', () => {
+describe('Genres Type', () => {
 
     let genreType: GenresDescriptor;
 
