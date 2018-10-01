@@ -23,4 +23,29 @@ describe('Actor Type', () => {
         expect(genreType.genres[1].name).toBe("Science Fiction");
     });
 
+    it('should create the list of actors with empty values', () => {
+        let response = {
+            "genres": [
+                { "test": "should appear empty values" },
+            ]
+        };
+
+        genreType = GenresDescriptor.import(response);
+
+        expect(genreType.genres[0].id).toBe(0);
+        expect(genreType.genres[0].name).toBe("");
+    });
+
+    it('should skip the first confitionas for GenresDescriptor', () => {
+        let response = {
+            "testing": [
+                { "test": "should appear empty values" },
+            ]
+        };
+
+        genreType = GenresDescriptor.import(response);
+
+        expect(genreType.genres.length).toBe(0);
+    });
+
 });
