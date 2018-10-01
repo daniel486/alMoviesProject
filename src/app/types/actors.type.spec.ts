@@ -70,4 +70,31 @@ describe('Actor Type', () => {
         expect(actorType.actors[1].name).toBe("Rose Byrne");
     });
 
+    it('should create the list of actors with empty values', () => {
+        let response = {
+            "results": [
+                { "test": "should appear empty values" },
+            ]
+        };
+
+        actorType = ActorList.import(response);
+
+        expect(actorType.actors[0].id).toBe(0);
+        expect(actorType.actors[0].name).toBe("");
+        expect(actorType.actors[0].profile_path).toBe("");
+        expect(actorType.total_pages).toBe(0);
+    });
+
+    it('should skip the first confitionals for GenresDescriptor', () => {
+        let response = {
+            "testing": [
+                { "test": "should appear empty values" },
+            ]
+        };
+
+        actorType = ActorList.import(response);
+
+        expect(actorType.actors.length).toBe(0);
+    });
+
 });

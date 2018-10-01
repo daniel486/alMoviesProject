@@ -36,7 +36,7 @@ describe('Actor Type', () => {
         expect(genreType.genres[0].name).toBe("");
     });
 
-    it('should skip the first confitionas for GenresDescriptor', () => {
+    it('should skip the first confitionals for GenresDescriptor', () => {
         let response = {
             "testing": [
                 { "test": "should appear empty values" },
