@@ -20,6 +20,7 @@ describe('DetailActorComponent', () => {
   let component: DetailActorComponent;
   let fixture: ComponentFixture<DetailActorComponent>;
   let service: DetailService;
+  let spyActor: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -40,13 +41,19 @@ describe('DetailActorComponent', () => {
     service = TestBed.get(DetailService);
   });
 
-  fit('should create the DetailActorComponent', () => {
+  afterEach(() => {
+    component.ngOnDestroy();
+  });
+
+  it('should create the DetailActorComponent', () => {
     expect(component).toBeTruthy();
   });
 
   fit('should create the actor', () => {
+    
     fixture.detectChanges();
-    let spyActor = spyOn(service, 'getActorDetail').and.returnValue(ActorDescriptor.import(
+    let spyActor = spyOn(service, 'getActorDetail');
+    spyActor.and.returnValue(of(ActorDescriptor.import(
       {
         "birthday": "1969-10-03",
         "known_for_department": "Production",
@@ -63,25 +70,15 @@ describe('DetailActorComponent', () => {
         "imdb_id": "nm0865189",
         "homepage": null
       }
-    ));
+    )));
+    component.ngOnInit();
+    
 
-    //component.actor = spyActor;
-    /*component.actor = ActorDescriptor.import({
-      "birthday":"1969-10-03",
-      "known_for_department":"Production",
-      "deathday":null,
-      "id":550,
-      "name":"Jennifer Todd",
-      "also_known_as":[],
-      "gender":1,
-      "biography":"",
-      "popularity":0.6,
-      "place_of_birth":"Los Angeles, California, USA",
-      "profile_path":"\/aIecrmmYpqnyCWQArAueqD60qok.jpg",
-      "adult":false,
-      "imdb_id":"nm0865189",
-      "homepage":null
-    });
-    expect(component.actor.name).toEqual("Jennifer Todd");*/
+    console.log(component.actor);
+
+    expect(service.getActorDetail).toHaveBeenCalled();
+    expect(component.actor.name).toEqual("Jennifer Todd");
+
+    
   });
 });
