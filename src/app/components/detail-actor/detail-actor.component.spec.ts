@@ -20,7 +20,6 @@ describe('DetailActorComponent', () => {
   let component: DetailActorComponent;
   let fixture: ComponentFixture<DetailActorComponent>;
   let service: DetailService;
-  let spyActor: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -46,10 +45,11 @@ describe('DetailActorComponent', () => {
   });
 
   it('should create the DetailActorComponent', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
-  fit('should create the actor', () => {
+  it('should create the actor', () => {
     
     fixture.detectChanges();
     let spyActor = spyOn(service, 'getActorDetail');
