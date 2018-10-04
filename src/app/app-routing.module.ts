@@ -12,7 +12,7 @@ import { DetailTvComponent } from './components/detail-tv/detail-tv.component';
 /**
  * This are the paths of the page.
  */
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'movies',
