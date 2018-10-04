@@ -29,11 +29,11 @@ describe('ListActorsComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create the ListActorsComponent', () => {
+  it('should create the ListActorsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('Should obtain the list of actors', () => {
+  it('Should obtain the list of actors', () => {
     let spyActors = spyOn(service, 'getActors');
     spyActors.and.returnValue(of(ActorList.import(
       {
