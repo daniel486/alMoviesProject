@@ -53,8 +53,8 @@ describe('DetailMovieComponent', () => {
 
   it('should create the movie', () => {
     fixture.detectChanges();
-    let spyActor = spyOn(service, 'getMovieDetail');
-    spyActor.and.returnValue(of(MovieDescriptor.import(
+    let spyMovie = spyOn(service, 'getMovieDetail');
+    spyMovie.and.returnValue(of(MovieDescriptor.import(
       {
         "adult": false,
         "backdrop_path": "/o5l7nvYLfisSndoOIbMxoUHfdNd.jpg",
@@ -104,8 +104,8 @@ describe('DetailMovieComponent', () => {
 
   it('should create the similar movies', () => {
     fixture.detectChanges();
-    let spyActor = spyOn(service, 'getSimilarMovies');
-    spyActor.and.returnValue(of(SimilarMoviesDescriptor.import(
+    let spyMovie = spyOn(service, 'getSimilarMovies');
+    spyMovie.and.returnValue(of(SimilarMoviesDescriptor.import(
       {
         "page": 1,
         "results": [
@@ -157,8 +157,8 @@ describe('DetailMovieComponent', () => {
 
   it('should create the cast of the movie', () => {
     fixture.detectChanges();
-    let spyActor = spyOn(service, 'getMovieCast');
-    spyActor.and.returnValue(of(CastMoviesDescriptor.import(
+    let spyMovie = spyOn(service, 'getMovieCast');
+    spyMovie.and.returnValue(of(CastMoviesDescriptor.import(
       {
         "id": 841,
         "cast": [{

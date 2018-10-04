@@ -50,8 +50,8 @@ describe('DetailTvComponent', () => {
 
   it('should create the serie', () => {
     fixture.detectChanges();
-    let spyActor = spyOn(service, 'getSerieDetail');
-    spyActor.and.returnValue(of(TvDescriptor.import(
+    let spySerie = spyOn(service, 'getSerieDetail');
+    spySerie.and.returnValue(of(TvDescriptor.import(
       {
         "backdrop_path": null,
         "created_by": [{
@@ -131,8 +131,8 @@ describe('DetailTvComponent', () => {
 
   it('should create the similar series', () => {
     fixture.detectChanges();
-    let spyActor = spyOn(service, 'getSimilarSeries');
-    spyActor.and.returnValue(of(SimilarSeriesDescriptor.import(
+    let spySerie = spyOn(service, 'getSimilarSeries');
+    spySerie.and.returnValue(of(SimilarSeriesDescriptor.import(
       {
         "page": 1,
         "results": [{
@@ -180,8 +180,8 @@ describe('DetailTvComponent', () => {
 
   it('should create the cast and the crew of the serie', () => {
     fixture.detectChanges();
-    let spyActor = spyOn(service, 'getSerieCast');
-    spyActor.and.returnValue(of(CastSeriesDescriptor.import(
+    let spySerie = spyOn(service, 'getSerieCast');
+    spySerie.and.returnValue(of(CastSeriesDescriptor.import(
       {
         "cast": [{
           "character": "Else Garnett",
