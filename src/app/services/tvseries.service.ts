@@ -19,8 +19,8 @@ export class TvseriesService {
    * This function provides the popular tv series from TMDB API to render the list
    * of TV Series in the list-tv component.
    */
-  getTvSeries(){
-    return this.http.get(this.url + this.apiKey)
+  getTvSeries(page: number){
+    return this.http.get(this.url + this.apiKey + "&page=" + page)
     .pipe(
       map((data)=>{
         return TvList.import(data);
