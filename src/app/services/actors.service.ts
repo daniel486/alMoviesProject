@@ -19,8 +19,8 @@ export class ActorsService {
    * This function provides the popular people from TMDB API to render the list
    * of actors.
    */
-  getActors(){
-    return this.http.get(this.url + this.apiKey)
+  getActors(page: number){
+    return this.http.get(this.url + this.apiKey + "&page=" + page)
     .pipe(
       map((data)=>{
         return ActorList.import(data);
