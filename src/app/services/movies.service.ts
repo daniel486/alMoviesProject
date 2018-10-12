@@ -19,8 +19,8 @@ export class MoviesService {
    * This function provides the popular movies from TMDB API to render the list
    * of movies.
    */
-  getMovies(){
-    return this.http.get(this.url + this.apiKey)
+  getMovies(page: number){
+    return this.http.get(this.url + this.apiKey + "&page=" + page)
     .pipe(
       map((data)=>{
         return MovieList.import(data);
