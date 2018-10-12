@@ -17,6 +17,8 @@
         </mat-card-content>
       </mat-card>
   </div>
+    <mat-paginator [length]="length" [pageIndex]=0 [pageSize]="20" (page)="setActualPage($event)">
+    </mat-paginator>
 </div>
 
 <app-footer></app-footer>
