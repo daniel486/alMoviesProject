@@ -2,7 +2,11 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-
+.mat-paginator {
+    background: rgba(97, 97, 93, 0.616);
+    color: white;
+    font-size: 100%;
+}
 
 @keyframes move-twink-back {
     from {background-position:0 0;}
