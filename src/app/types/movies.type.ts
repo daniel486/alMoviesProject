@@ -4,6 +4,7 @@
 export class MovieList {
 
     public total_pages: number;
+    public total_results: number;
     public movies: MovieIndividual[] = [];
 
     public static import(rawData: any) {
@@ -13,6 +14,7 @@ export class MovieList {
         let movie: MovieIndividual;
 
         response.total_pages = rawData.hasOwnProperty('total_pages') ? rawData.total_pages : 0;
+        response.total_results = rawData.hasOwnProperty('total_results') ? rawData.total_results : 0;
 
         if(rawData.hasOwnProperty("results")){
             for(var i = 0; i < rawData.results.length; i++){
